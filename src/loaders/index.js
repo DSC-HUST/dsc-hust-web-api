@@ -8,7 +8,7 @@ export const startServer = async () => {
             mongoose.connect(MONGODB_URI, mongodbOptions),
             app.listen(PORT)
         ]);
-        mongoose.set('debug', true);
+        // mongoose.set('debug', true);
         console.log('Server running, db connected');
     }
     catch(error) {

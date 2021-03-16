@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
-app.use(router);
+app.use('/v1/', router);
 
 export {
     app

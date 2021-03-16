@@ -6,5 +6,7 @@ export const SERCRET_ACCESS_KEY = process.env.SERCRET_ACCESS_KEY;
 
 export const mongodbOptions = {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
 }
