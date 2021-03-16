@@ -1,0 +1,46 @@
+@host = http://localhost:9999
+@authenToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTYxNTg5ODgzMywiZXhwIjoxNjE1ODk5NzMzfQ.DyrpN27wZCV2ufLYeBRIzfMpXh7y_lbqWqrDPAP1lEg
+###
+POST {{host}}/authen/login 
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+###
+DELETE {{host}}/authen/logout
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTYxNTg5MzQzNywiZXhwIjoxNjE1ODk0MzM3fQ.LFA2TyotbmJy8oZKTKF4gGCehBKtb2rZjTjh_3H7m6g"
+}
+
+###
+POST {{host}}/authen/refresh-token
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTYxNTg5MzQzNywiZXhwIjoxNjE1ODk0MzM3fQ.LFA2TyotbmJy8oZKTKF4gGCehBKtb2rZjTjh_3H7m6g"
+}
+
+###
+POST {{host}}/test
+Authorization: Bear {{authenToken}}
+
+{
+
+}
+
+###
+POST {{host}}/upload/image
+Authorization: Bear {{authenToken}}
+Content-Type: multipart/form-data; boundary=---123
+
+---123
+Content-Disposition: form-data; name="image"; filename="test123.png"
+Content-Type: image/png
+
+< ./test123.png
+---123
