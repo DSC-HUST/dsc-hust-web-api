@@ -5,6 +5,10 @@ const MemberSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    
+    role: {
+        type: String
+    },
 
     profile: {
         type: String,
