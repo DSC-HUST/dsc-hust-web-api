@@ -10,6 +10,7 @@ export const login = handleAsync(async (req, res) => {
         });
     }
     else {
+        res.status(401);
         throw new Error('Username or password is not correct');
     }
 });
