@@ -5,6 +5,15 @@ const MemberSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+
+    gender: {
+        type: String,
+        enum: ['male', 'female'],
+    },
+
+    imageUrl: {
+        type: String
+    },
     
     role: {
         type: String
