@@ -38,10 +38,7 @@ const eventSchema = new mongoose.Schema({
         required: true
     },
 
-    speaker: {
-        type: speakerSchema,
-        required: true
-    }
+    speaker: [speakerSchema]
 });
 
 export const Event = mongoose.model('Event', eventSchema);
