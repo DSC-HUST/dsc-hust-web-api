@@ -1,8 +1,10 @@
 import express from 'express';
-import { createEvent, getEvent, getAllEvent, updateEvent} from '../controllers';
+import { createEvent, getEvent, getAllEvent, updateEvent, confirmEmail} from '../controllers';
 import { authenticate } from '../middlewares';
 
 const router = express.Router();
+
+router.get('/confirm', confirmEmail);
 
 router.post('/', authenticate, createEvent);
 router.get('/', getAllEvent);
